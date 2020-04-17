@@ -27,13 +27,6 @@ struct GridIndex {
 
 class GridCollectionViewLayout: UICollectionViewLayout {
 
-    private typealias CellLookUpKey = IndexPath
-
-    private struct SuplementaryViewLookUpKey: Hashable {
-        var kind: String
-        var indexPath: IndexPath
-    }
-
     enum Alignment: String {
         case top, bottom, center
     }
