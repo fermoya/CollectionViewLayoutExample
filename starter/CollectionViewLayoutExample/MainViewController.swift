@@ -32,9 +32,9 @@ class MainViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        collectionView.register(SpannableColletionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
-        collectionView.register(SpannableSuplementaryView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
-        collectionView.register(SpannableSuplementaryView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerIdentifier)
+        collectionView.register(GridColletionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
+        collectionView.register(GridSuplementaryView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
+        collectionView.register(GridSuplementaryView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerIdentifier)
     }
 
     private func colorForCell(at indexPath: IndexPath) -> UIColor {
@@ -57,7 +57,7 @@ extension MainViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! SpannableColletionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! GridColletionViewCell
         cell.text = "(\(indexPath.section),\(indexPath.row))"
         cell.backgroundColor = colorForCell(at: indexPath)
         return cell
@@ -72,7 +72,7 @@ extension MainViewController {
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
 
         let identifier = kind == UICollectionView.elementKindSectionHeader ? headerIdentifier : footerIdentifier
-        guard let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: identifier, for: indexPath) as? SpannableSuplementaryView else { fatalError("Couldn't dequeue UICollectionView header") }
+        guard let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: identifier, for: indexPath) as? GridSuplementaryView else { fatalError("Couldn't dequeue UICollectionView header") }
 
         let title = kind == UICollectionView.elementKindSectionHeader ? "Header" : "Footer"
 

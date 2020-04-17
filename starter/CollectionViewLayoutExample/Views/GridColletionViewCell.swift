@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SpannableColletionViewCell: UICollectionViewCell {
+class GridColletionViewCell: UICollectionViewCell {
 
     var text: String = "" {
         didSet {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SpannableSuplementaryView: UICollectionReusableView {
+class GridSuplementaryView: UICollectionReusableView {
 
     var title: String? {
         set {
